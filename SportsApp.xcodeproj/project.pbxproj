@@ -9,10 +9,15 @@
 /* Begin PBXBuildFile section */
 		049012B72B5D76AD00D87A09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049012B62B5D76AD00D87A09 /* AppDelegate.swift */; };
 		049012B92B5D76AD00D87A09 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049012B82B5D76AD00D87A09 /* SceneDelegate.swift */; };
-		049012BB2B5D76AD00D87A09 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049012BA2B5D76AD00D87A09 /* ViewController.swift */; };
+		049012BB2B5D76AD00D87A09 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049012BA2B5D76AD00D87A09 /* LaunchViewController.swift */; };
 		049012BE2B5D76AD00D87A09 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 049012BC2B5D76AD00D87A09 /* Main.storyboard */; };
 		049012C02B5D76B000D87A09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 049012BF2B5D76B000D87A09 /* Assets.xcassets */; };
 		049012C32B5D76B000D87A09 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 049012C12B5D76B000D87A09 /* LaunchScreen.storyboard */; };
+		0494E8B92B5F553900F4AE2E /* LaunchScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0494E8B82B5F553900F4AE2E /* LaunchScreenVC.swift */; };
+		04A9F3CF2B5F904100725B7A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A9F3CE2B5F904100725B7A /* HomeViewController.swift */; };
+		04F7FCB82B5FF283001A6443 /* fav.json in Resources */ = {isa = PBXBuildFile; fileRef = 04F7FCB72B5FF283001A6443 /* fav.json */; };
+		04F7FCBA2B5FF28C001A6443 /* ball.json in Resources */ = {isa = PBXBuildFile; fileRef = 04F7FCB92B5FF28C001A6443 /* ball.json */; };
+		04F7FCBC2B5FF29B001A6443 /* done.json in Resources */ = {isa = PBXBuildFile; fileRef = 04F7FCBB2B5FF29B001A6443 /* done.json */; };
 		DD126706F0B543E465256512 /* Pods_SportsApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B87074929332DF6CBB205AF /* Pods_SportsApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -20,11 +25,16 @@
 		049012B32B5D76AD00D87A09 /* SportsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SportsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		049012B62B5D76AD00D87A09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		049012B82B5D76AD00D87A09 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		049012BA2B5D76AD00D87A09 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		049012BA2B5D76AD00D87A09 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		049012BD2B5D76AD00D87A09 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		049012BF2B5D76B000D87A09 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		049012C22B5D76B000D87A09 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		049012C42B5D76B000D87A09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0494E8B82B5F553900F4AE2E /* LaunchScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenVC.swift; sourceTree = "<group>"; };
+		04A9F3CE2B5F904100725B7A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		04F7FCB72B5FF283001A6443 /* fav.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fav.json; sourceTree = "<group>"; };
+		04F7FCB92B5FF28C001A6443 /* ball.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ball.json; sourceTree = "<group>"; };
+		04F7FCBB2B5FF29B001A6443 /* done.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = done.json; sourceTree = "<group>"; };
 		2AE0C3B627C4CCCF09D5E3C1 /* Pods-SportsApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportsApp.debug.xcconfig"; path = "Target Support Files/Pods-SportsApp/Pods-SportsApp.debug.xcconfig"; sourceTree = "<group>"; };
 		5B87074929332DF6CBB205AF /* Pods_SportsApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SportsApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD07569AC71DC5FA7E62FE9F /* Pods-SportsApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportsApp.release.xcconfig"; path = "Target Support Files/Pods-SportsApp/Pods-SportsApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -47,6 +57,7 @@
 			children = (
 				049012BC2B5D76AD00D87A09 /* Main.storyboard */,
 				049012C12B5D76B000D87A09 /* LaunchScreen.storyboard */,
+				0494E8B82B5F553900F4AE2E /* LaunchScreenVC.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -61,6 +72,9 @@
 		043952E82B5D969400B1084C /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				04F7FCBE2B5FF9EE001A6443 /* FavouritesScreen */,
+				04A9F3CB2B5F900300725B7A /* HomeScreen */,
+				0494E8BA2B5F57D600F4AE2E /* LaunchScreen */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -82,6 +96,7 @@
 		043952EB2B5D96C700B1084C /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				04F7FCBD2B5FF29E001A6443 /* LottieAnimation */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -115,11 +130,83 @@
 				043952E62B5D968700B1084C /* View */,
 				049012B62B5D76AD00D87A09 /* AppDelegate.swift */,
 				049012B82B5D76AD00D87A09 /* SceneDelegate.swift */,
-				049012BA2B5D76AD00D87A09 /* ViewController.swift */,
 				049012BF2B5D76B000D87A09 /* Assets.xcassets */,
 				049012C42B5D76B000D87A09 /* Info.plist */,
 			);
 			path = SportsApp;
+			sourceTree = "<group>";
+		};
+		0494E8BA2B5F57D600F4AE2E /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				0494E8BB2B5F57E300F4AE2E /* View */,
+			);
+			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		0494E8BB2B5F57E300F4AE2E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				049012BA2B5D76AD00D87A09 /* LaunchViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		04A9F3CB2B5F900300725B7A /* HomeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				04A9F3CD2B5F901300725B7A /* ViewModel */,
+				04A9F3CC2B5F900E00725B7A /* View */,
+			);
+			path = HomeScreen;
+			sourceTree = "<group>";
+		};
+		04A9F3CC2B5F900E00725B7A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				04A9F3CE2B5F904100725B7A /* HomeViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		04A9F3CD2B5F901300725B7A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		04F7FCBD2B5FF29E001A6443 /* LottieAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				04F7FCBB2B5FF29B001A6443 /* done.json */,
+				04F7FCB72B5FF283001A6443 /* fav.json */,
+				04F7FCB92B5FF28C001A6443 /* ball.json */,
+			);
+			path = LottieAnimation;
+			sourceTree = "<group>";
+		};
+		04F7FCBE2B5FF9EE001A6443 /* FavouritesScreen */ = {
+			isa = PBXGroup;
+			children = (
+				04F7FCC02B5FFA01001A6443 /* ViewModel */,
+				04F7FCBF2B5FF9FB001A6443 /* View */,
+			);
+			path = FavouritesScreen;
+			sourceTree = "<group>";
+		};
+		04F7FCBF2B5FF9FB001A6443 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		04F7FCC02B5FFA01001A6443 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		6E2066EBA3DC30102B54919A /* Pods */ = {
@@ -128,7 +215,6 @@
 				2AE0C3B627C4CCCF09D5E3C1 /* Pods-SportsApp.debug.xcconfig */,
 				BD07569AC71DC5FA7E62FE9F /* Pods-SportsApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -200,7 +286,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04F7FCBA2B5FF28C001A6443 /* ball.json in Resources */,
+				04F7FCBC2B5FF29B001A6443 /* done.json in Resources */,
 				049012C32B5D76B000D87A09 /* LaunchScreen.storyboard in Resources */,
+				04F7FCB82B5FF283001A6443 /* fav.json in Resources */,
 				049012C02B5D76B000D87A09 /* Assets.xcassets in Resources */,
 				049012BE2B5D76AD00D87A09 /* Main.storyboard in Resources */,
 			);
@@ -255,9 +344,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				049012BB2B5D76AD00D87A09 /* ViewController.swift in Sources */,
+				04A9F3CF2B5F904100725B7A /* HomeViewController.swift in Sources */,
+				049012BB2B5D76AD00D87A09 /* LaunchViewController.swift in Sources */,
 				049012B72B5D76AD00D87A09 /* AppDelegate.swift in Sources */,
 				049012B92B5D76AD00D87A09 /* SceneDelegate.swift in Sources */,
+				0494E8B92B5F553900F4AE2E /* LaunchScreenVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
