@@ -32,7 +32,9 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.tabBarController?.title = "Sports"
+        
         self.tabBarController?.navigationItem.setHidesBackButton(true, animated: true)
         
         sportsCollectionView.dataSource = self
@@ -103,7 +105,6 @@ extension HomeViewController:UICollectionViewDelegate, UICollectionViewDataSourc
         
         let leaguesVC = self.storyboard?.instantiateViewController(withIdentifier: "leagues") as! SportLeaguesTableViewController
         performSegue(withIdentifier: "showLeagues", sender: self)
-//        self.present(leaguesVC, animated: true, completion: nil)
     }
     
     
