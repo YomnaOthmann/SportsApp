@@ -1,9 +1,3 @@
-//
-//  LaunchViewController.swift
-//  SportsApp
-//
-//  Created by Mac on 23/01/2024.
-//
 
 import UIKit
 import Lottie
@@ -22,7 +16,7 @@ class LaunchScreenVC: UIViewController {
         lottieAnimationView.animationSpeed = 1.0
         
         lottieAnimationView.play()
-        
+       
         DispatchQueue.main.asyncAfter(deadline: .now()+4){
             self.performSegue(withIdentifier: "leaveLaunch", sender: self)
         }

@@ -51,16 +51,71 @@
                     <view key="view" contentMode="scaleToFill" id="HoY-zV-v7s">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="peJ-Jg-l3W">
+                                <rect key="frame" x="0.0" y="135" width="393" height="634"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Jlf-6F-tcZ">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZrB-zc-jnw">
+                                <rect key="frame" x="333" y="101" width="44" height="34"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="list" title=""/>
+                                <connections>
+                                    <action selector="setLayout:" destination="Tpv-WJ-h0j" eventType="touchUpInside" id="7y9-zq-kgH"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="j8q-eb-coq"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="peJ-Jg-l3W" firstAttribute="leading" secondItem="j8q-eb-coq" secondAttribute="leading" id="1TM-V1-t5f"/>
+                            <constraint firstItem="peJ-Jg-l3W" firstAttribute="top" secondItem="ZrB-zc-jnw" secondAttribute="bottom" id="4ar-ce-qbt"/>
+                            <constraint firstItem="j8q-eb-coq" firstAttribute="bottom" secondItem="peJ-Jg-l3W" secondAttribute="bottom" id="88D-9J-xaa"/>
+                            <constraint firstItem="j8q-eb-coq" firstAttribute="trailing" secondItem="peJ-Jg-l3W" secondAttribute="trailing" id="Sqj-gu-dJg"/>
+                            <constraint firstItem="peJ-Jg-l3W" firstAttribute="top" secondItem="j8q-eb-coq" secondAttribute="top" constant="32" id="Td7-CG-CIh"/>
+                            <constraint firstItem="j8q-eb-coq" firstAttribute="trailing" secondItem="ZrB-zc-jnw" secondAttribute="trailing" constant="16" id="cTX-Pu-oiz"/>
+                            <constraint firstItem="ZrB-zc-jnw" firstAttribute="leading" secondItem="j8q-eb-coq" secondAttribute="leading" constant="333" id="h1Y-4f-UaC"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Sports" image="soccerball" catalog="system" id="6YT-oG-HEk">
-                        <imageReference key="selectedImage" image="soccerball" catalog="system" renderingMode="original"/>
+                    <tabBarItem key="tabBarItem" title="Sports" id="6YT-oG-HEk">
+                        <imageReference key="image" image="soccerball" catalog="system" symbolScale="default"/>
+                        <imageReference key="selectedImage" image="soccerball" catalog="system" symbolScale="large" renderingMode="original"/>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="layoutButton" destination="ZrB-zc-jnw" id="HCN-Ll-wBY"/>
+                        <outlet property="sportsCollectionView" destination="peJ-Jg-l3W" id="JXL-C6-SMv"/>
+                        <segue destination="1EV-73-lwf" kind="show" identifier="showLeagues" id="3XW-Pe-NOX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3cp-pJ-Uo8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3033" y="-312"/>
+            <point key="canvasLocation" x="3032.8244274809158" y="-312.67605633802816"/>
+        </scene>
+        <!--Leagues-->
+        <scene sceneID="98v-Rq-cqN">
+            <objects>
+                <tableViewController storyboardIdentifier="leagues" id="1EV-73-lwf" customClass="SportLeaguesTableViewController" customModule="SportsApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="9sA-Ug-Old">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <connections>
+                            <outlet property="dataSource" destination="1EV-73-lwf" id="LO0-xy-aUO"/>
+                            <outlet property="delegate" destination="1EV-73-lwf" id="ZFT-cN-1Kx"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Leagues" id="zjO-uA-fpV"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QXE-ul-vgK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3802" y="-313"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1nc-xI-AHr">
@@ -101,7 +156,7 @@
             </objects>
             <point key="canvasLocation" x="2011" y="-56"/>
         </scene>
-        <!--Fav-->
+        <!--Favourites-->
         <scene sceneID="6lU-kg-Zgb">
             <objects>
                 <viewController id="Df0-1B-R1k" sceneMemberID="viewController">
@@ -111,15 +166,9 @@
                         <viewLayoutGuide key="safeArea" id="Fcn-yE-8Nq"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Fav" id="Krm-i3-C5f">
-                        <imageReference key="image" image="heart" catalog="system" renderingMode="hierarchical">
-                            <hierarchicalColors>
-                                <color systemColor="systemRedColor"/>
-                                <color systemColor="systemRedColor"/>
-                                <color systemColor="linkColor"/>
-                            </hierarchicalColors>
-                        </imageReference>
-                        <imageReference key="selectedImage" image="heart.fill" catalog="system" renderingMode="original" variableValue="1"/>
+                    <tabBarItem key="tabBarItem" title="Favourites" id="Krm-i3-C5f">
+                        <imageReference key="image" image="heart" catalog="system" symbolScale="default"/>
+                        <imageReference key="selectedImage" image="heart.fill" catalog="system" symbolScale="large" renderingMode="original" variableValue="1"/>
                     </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZDW-7G-uFb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -133,15 +182,10 @@
     <resources>
         <image name="heart" catalog="system" width="128" height="107"/>
         <image name="heart.fill" catalog="system" width="128" height="107"/>
+        <image name="list" width="20" height="20"/>
         <image name="soccerball" catalog="system" width="128" height="123"/>
-        <systemColor name="linkColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
