@@ -15,6 +15,7 @@
 		048E34472B628C5600FD9B9F /* TeamCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048E34452B628C5600FD9B9F /* TeamCollectionViewCell.swift */; };
 		048E34482B628C5600FD9B9F /* TeamCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 048E34462B628C5600FD9B9F /* TeamCollectionViewCell.xib */; };
 		048E344A2B62D3D700FD9B9F /* LeagueDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048E34492B62D3D700FD9B9F /* LeagueDetailViewController.swift */; };
+		048E344C2B63010700FD9B9F /* FavouriteScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048E344B2B63010700FD9B9F /* FavouriteScreenViewController.swift */; };
 		048F683C2B60C39900540BD4 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048F683A2B60C39900540BD4 /* HomeCollectionViewCell.swift */; };
 		048F683D2B60C39900540BD4 /* HomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 048F683B2B60C39900540BD4 /* HomeCollectionViewCell.xib */; };
 		049012B72B5D76AD00D87A09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049012B62B5D76AD00D87A09 /* AppDelegate.swift */; };
@@ -27,7 +28,6 @@
 		04AB62082B60EA6B00F8AA7C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AB62072B60EA6B00F8AA7C /* Constants.swift */; };
 		04F7FCB82B5FF283001A6443 /* fav.json in Resources */ = {isa = PBXBuildFile; fileRef = 04F7FCB72B5FF283001A6443 /* fav.json */; };
 		04F7FCBA2B5FF28C001A6443 /* ball.json in Resources */ = {isa = PBXBuildFile; fileRef = 04F7FCB92B5FF28C001A6443 /* ball.json */; };
-		04F7FCBC2B5FF29B001A6443 /* done.json in Resources */ = {isa = PBXBuildFile; fileRef = 04F7FCBB2B5FF29B001A6443 /* done.json */; };
 		04F7FCC22B6005BF001A6443 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F7FCC12B6005BF001A6443 /* HomeViewModel.swift */; };
 		04F7FCCD2B6011D3001A6443 /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F7FCCC2B6011D3001A6443 /* APIHelper.swift */; };
 		04F7FCD52B602292001A6443 /* SportsAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F7FCD42B602292001A6443 /* SportsAppTests.swift */; };
@@ -53,6 +53,7 @@
 		048E34452B628C5600FD9B9F /* TeamCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCollectionViewCell.swift; sourceTree = "<group>"; };
 		048E34462B628C5600FD9B9F /* TeamCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeamCollectionViewCell.xib; sourceTree = "<group>"; };
 		048E34492B62D3D700FD9B9F /* LeagueDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueDetailViewController.swift; sourceTree = "<group>"; };
+		048E344B2B63010700FD9B9F /* FavouriteScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteScreenViewController.swift; sourceTree = "<group>"; };
 		048F683A2B60C39900540BD4 /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		048F683B2B60C39900540BD4 /* HomeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCollectionViewCell.xib; sourceTree = "<group>"; };
 		049012B32B5D76AD00D87A09 /* SportsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SportsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,7 +68,6 @@
 		04AB62072B60EA6B00F8AA7C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		04F7FCB72B5FF283001A6443 /* fav.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fav.json; sourceTree = "<group>"; };
 		04F7FCB92B5FF28C001A6443 /* ball.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ball.json; sourceTree = "<group>"; };
-		04F7FCBB2B5FF29B001A6443 /* done.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = done.json; sourceTree = "<group>"; };
 		04F7FCC12B6005BF001A6443 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		04F7FCCC2B6011D3001A6443 /* APIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
 		04F7FCD22B602292001A6443 /* SportsAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SportsAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -301,7 +301,6 @@
 		04F7FCBD2B5FF29E001A6443 /* LottieAnimation */ = {
 			isa = PBXGroup;
 			children = (
-				04F7FCBB2B5FF29B001A6443 /* done.json */,
 				04F7FCB72B5FF283001A6443 /* fav.json */,
 				04F7FCB92B5FF28C001A6443 /* ball.json */,
 			);
@@ -320,6 +319,7 @@
 		04F7FCBF2B5FF9FB001A6443 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				048E344B2B63010700FD9B9F /* FavouriteScreenViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -448,7 +448,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				04F7FCBA2B5FF28C001A6443 /* ball.json in Resources */,
-				04F7FCBC2B5FF29B001A6443 /* done.json in Resources */,
 				049012C32B5D76B000D87A09 /* LaunchScreen.storyboard in Resources */,
 				048E34482B628C5600FD9B9F /* TeamCollectionViewCell.xib in Resources */,
 				04F7FCB82B5FF283001A6443 /* fav.json in Resources */,
@@ -518,6 +517,7 @@
 			files = (
 				048F683C2B60C39900540BD4 /* HomeCollectionViewCell.swift in Sources */,
 				048E344A2B62D3D700FD9B9F /* LeagueDetailViewController.swift in Sources */,
+				048E344C2B63010700FD9B9F /* FavouriteScreenViewController.swift in Sources */,
 				04F7FCCD2B6011D3001A6443 /* APIHelper.swift in Sources */,
 				04A9F3CF2B5F904100725B7A /* HomeViewController.swift in Sources */,
 				049012B72B5D76AD00D87A09 /* AppDelegate.swift in Sources */,

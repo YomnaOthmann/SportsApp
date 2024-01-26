@@ -70,13 +70,13 @@ class LeagueDetailViewController: UIViewController {
         section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 16, bottom: 16, trailing: 0)
         section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 16, bottom: 16, trailing: 0)
         
-        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                                  heightDimension: .absolute(50.0))
-        let header = NSCollectionLayoutBoundarySupplementaryItem(
-            layoutSize: headerSize,
-            elementKind: UICollectionView.elementKindSectionHeader,
-            alignment: .top)
-        section.boundarySupplementaryItems = [header]
+//        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+//                                                                  heightDimension: .absolute(50.0))
+//        let header = NSCollectionLayoutBoundarySupplementaryItem(
+//            layoutSize: headerSize,
+//            elementKind: UICollectionView.elementKindSectionHeader,
+//            alignment: .top)
+//        section.boundarySupplementaryItems = [header]
         return section
         
     }
