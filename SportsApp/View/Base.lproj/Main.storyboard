@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eCf-4g-nuO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1yt-TY-V4m">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
@@ -64,7 +64,7 @@
                                 <cells/>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZrB-zc-jnw">
-                                <rect key="frame" x="333" y="101" width="44" height="34"/>
+                                <rect key="frame" x="333" y="103" width="60" height="34"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="list" title=""/>
                                 <connections>
@@ -76,12 +76,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="peJ-Jg-l3W" firstAttribute="leading" secondItem="j8q-eb-coq" secondAttribute="leading" id="1TM-V1-t5f"/>
-                            <constraint firstItem="peJ-Jg-l3W" firstAttribute="top" secondItem="ZrB-zc-jnw" secondAttribute="bottom" id="4ar-ce-qbt"/>
                             <constraint firstItem="j8q-eb-coq" firstAttribute="bottom" secondItem="peJ-Jg-l3W" secondAttribute="bottom" id="88D-9J-xaa"/>
+                            <constraint firstItem="ZrB-zc-jnw" firstAttribute="top" secondItem="j8q-eb-coq" secondAttribute="top" id="Dpr-DP-eZT"/>
+                            <constraint firstItem="ZrB-zc-jnw" firstAttribute="leading" secondItem="j8q-eb-coq" secondAttribute="leading" constant="333" id="FUU-n8-GOh"/>
                             <constraint firstItem="j8q-eb-coq" firstAttribute="trailing" secondItem="peJ-Jg-l3W" secondAttribute="trailing" id="Sqj-gu-dJg"/>
                             <constraint firstItem="peJ-Jg-l3W" firstAttribute="top" secondItem="j8q-eb-coq" secondAttribute="top" constant="32" id="Td7-CG-CIh"/>
-                            <constraint firstItem="j8q-eb-coq" firstAttribute="trailing" secondItem="ZrB-zc-jnw" secondAttribute="trailing" constant="16" id="cTX-Pu-oiz"/>
-                            <constraint firstItem="ZrB-zc-jnw" firstAttribute="leading" secondItem="j8q-eb-coq" secondAttribute="leading" constant="333" id="h1Y-4f-UaC"/>
+                            <constraint firstItem="j8q-eb-coq" firstAttribute="trailing" secondItem="ZrB-zc-jnw" secondAttribute="trailing" id="cTX-Pu-oiz"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Sports" id="6YT-oG-HEk">
@@ -207,7 +207,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tfj-FV-K59">
-                                        <rect key="frame" x="16" y="72" width="13.333333333333336" height="18.333333333333329"/>
+                                        <rect key="frame" x="0.0" y="72" width="40" height="18.333333333333332"/>
                                         <state key="normal" title="">
                                             <imageReference key="image" image="chevron.left" catalog="system" renderingMode="hierarchical">
                                                 <hierarchicalColors>
@@ -222,24 +222,24 @@
                                             <action selector="back:" destination="1yt-TY-V4m" eventType="touchUpInside" id="t7h-Tt-unc"/>
                                         </connections>
                                     </button>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="league" translatesAutoresizingMaskIntoConstraints="NO" id="idc-TN-WlG">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="league" translatesAutoresizingMaskIntoConstraints="NO" id="idc-TN-WlG">
                                         <rect key="frame" x="16" y="138" width="100" height="100"/>
                                     </imageView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="bdz-ez-dta" secondAttribute="trailing" id="2Cf-zy-8QO"/>
                                     <constraint firstItem="idc-TN-WlG" firstAttribute="leading" secondItem="afl-mU-bZe" secondAttribute="leading" constant="16" id="3w0-7o-F78"/>
-                                    <constraint firstItem="idc-TN-WlG" firstAttribute="top" secondItem="bdz-ez-dta" secondAttribute="bottom" constant="42.333333333333329" id="7k6-03-F33"/>
-                                    <constraint firstAttribute="bottom" secondItem="idc-TN-WlG" secondAttribute="bottom" constant="32" id="7kL-Uv-dMJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="tfj-FV-K59" secondAttribute="trailing" constant="353" id="65B-Kd-1Da"/>
+                                    <constraint firstItem="idc-TN-WlG" firstAttribute="top" relation="greaterThanOrEqual" secondItem="bdz-ez-dta" secondAttribute="bottom" constant="42.333333333333329" id="7k6-03-F33"/>
+                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="idc-TN-WlG" secondAttribute="bottom" constant="32" id="7kL-Uv-dMJ"/>
                                     <constraint firstItem="bdz-ez-dta" firstAttribute="top" secondItem="afl-mU-bZe" secondAttribute="top" constant="67" id="F2J-c0-DYU"/>
                                     <constraint firstItem="tfj-FV-K59" firstAttribute="top" secondItem="afl-mU-bZe" secondAttribute="top" constant="72" id="G6o-aB-Teg"/>
-                                    <constraint firstAttribute="trailing" secondItem="idc-TN-WlG" secondAttribute="trailing" constant="277" id="SFo-43-ZAC"/>
-                                    <constraint firstAttribute="trailing" secondItem="tfj-FV-K59" secondAttribute="trailing" constant="363.67000000000002" id="ZzE-DM-0ZO"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="idc-TN-WlG" secondAttribute="trailing" constant="277" id="SFo-43-ZAC"/>
                                     <constraint firstItem="bdz-ez-dta" firstAttribute="leading" secondItem="afl-mU-bZe" secondAttribute="leading" id="kO8-Zs-408"/>
-                                    <constraint firstItem="tfj-FV-K59" firstAttribute="leading" secondItem="afl-mU-bZe" secondAttribute="leading" constant="16" id="oed-IX-g3E"/>
+                                    <constraint firstItem="tfj-FV-K59" firstAttribute="leading" secondItem="afl-mU-bZe" secondAttribute="leading" id="oed-IX-g3E"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Diw-TU-Jrk">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Diw-TU-Jrk">
                                 <rect key="frame" x="0.0" y="270" width="393" height="548"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -254,7 +254,6 @@
                             <constraint firstItem="Diw-TU-Jrk" firstAttribute="leading" secondItem="nK3-mP-1U3" secondAttribute="leading" id="D2X-Sw-qNF"/>
                             <constraint firstItem="Diw-TU-Jrk" firstAttribute="trailing" secondItem="nK3-mP-1U3" secondAttribute="trailing" id="TaC-rF-N6z"/>
                             <constraint firstItem="Diw-TU-Jrk" firstAttribute="top" secondItem="afl-mU-bZe" secondAttribute="bottom" id="VXg-py-msk"/>
-                            <constraint firstItem="Diw-TU-Jrk" firstAttribute="top" secondItem="afl-mU-bZe" secondAttribute="bottom" id="jXx-8d-gJx"/>
                             <constraint firstItem="afl-mU-bZe" firstAttribute="top" secondItem="wLI-mq-07E" secondAttribute="top" id="nNw-8I-gqM"/>
                             <constraint firstItem="afl-mU-bZe" firstAttribute="leading" secondItem="nK3-mP-1U3" secondAttribute="leading" id="wKL-oi-JwR"/>
                             <constraint firstItem="Diw-TU-Jrk" firstAttribute="bottom" secondItem="nK3-mP-1U3" secondAttribute="bottom" id="zQt-XZ-MGM"/>
@@ -267,7 +266,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YPn-xa-3JQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5333.5877862595416" y="-313.38028169014086"/>
+            <point key="canvasLocation" x="5486" y="-313"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1nc-xI-AHr">
@@ -353,8 +352,8 @@
     <resources>
         <image name="chevron.backward" catalog="system" width="97" height="128"/>
         <image name="chevron.left" catalog="system" width="97" height="128"/>
-        <image name="heart" catalog="system" width="128" height="107"/>
         <image name="heart" width="20" height="20"/>
+        <image name="heart" catalog="system" width="128" height="107"/>
         <image name="heart.fill" catalog="system" width="128" height="107"/>
         <image name="league" width="512" height="512"/>
         <image name="list" width="20" height="20"/>
@@ -363,13 +362,13 @@
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="secondaryLabelColor">
-            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="tertiaryLabelColor">
-            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.29803921570000003" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29803921568627451" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

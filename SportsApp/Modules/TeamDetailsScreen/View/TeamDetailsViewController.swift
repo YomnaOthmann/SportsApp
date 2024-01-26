@@ -29,7 +29,7 @@ class TeamDetailsViewController: UIViewController {
         teamsTable.dataSource = self
         teamsTable.register(TeamPlayerCustomCell.nib(), forCellReuseIdentifier: TeamPlayerCustomCell.teamCellId)
         
-        headerView.addGradient([UIColor(cgColor: CGColor(red: 33/255, green: 50/255, blue: 59/255, alpha: 1.0)),UIColor.white], locations: [0.15,0.7,0.1], frame: headerView.frame)
+        headerView.addGradient([UIColor(cgColor: CGColor(red: 33/255, green: 50/255, blue: 59/255, alpha: 1.0)),UIColor.white], locations: [0.03,0.3,0.1], frame: self.view.frame)
         
     }
     
