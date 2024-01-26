@@ -189,6 +189,86 @@
             </objects>
             <point key="canvasLocation" x="4572" y="-313"/>
         </scene>
+        <!--Team Details View Controller-->
+        <scene sceneID="U6H-a0-szy">
+            <objects>
+                <viewController storyboardIdentifier="team" id="1yt-TY-V4m" customClass="TeamDetailsViewController" customModule="SportsApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wLI-mq-07E">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="afl-mU-bZe">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="270"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bdz-ez-dta">
+                                        <rect key="frame" x="0.0" y="67" width="393" height="28.666666666666671"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tfj-FV-K59">
+                                        <rect key="frame" x="16" y="72" width="13.333333333333336" height="18.333333333333329"/>
+                                        <state key="normal" title="">
+                                            <imageReference key="image" image="chevron.left" catalog="system" renderingMode="hierarchical">
+                                                <hierarchicalColors>
+                                                    <color systemColor="labelColor"/>
+                                                    <color systemColor="secondaryLabelColor"/>
+                                                    <color systemColor="tertiaryLabelColor"/>
+                                                </hierarchicalColors>
+                                            </imageReference>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="semibold"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="back:" destination="1yt-TY-V4m" eventType="touchUpInside" id="t7h-Tt-unc"/>
+                                        </connections>
+                                    </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="league" translatesAutoresizingMaskIntoConstraints="NO" id="idc-TN-WlG">
+                                        <rect key="frame" x="16" y="138" width="100" height="100"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="bdz-ez-dta" secondAttribute="trailing" id="2Cf-zy-8QO"/>
+                                    <constraint firstItem="idc-TN-WlG" firstAttribute="leading" secondItem="afl-mU-bZe" secondAttribute="leading" constant="16" id="3w0-7o-F78"/>
+                                    <constraint firstItem="idc-TN-WlG" firstAttribute="top" secondItem="bdz-ez-dta" secondAttribute="bottom" constant="42.333333333333329" id="7k6-03-F33"/>
+                                    <constraint firstAttribute="bottom" secondItem="idc-TN-WlG" secondAttribute="bottom" constant="32" id="7kL-Uv-dMJ"/>
+                                    <constraint firstItem="bdz-ez-dta" firstAttribute="top" secondItem="afl-mU-bZe" secondAttribute="top" constant="67" id="F2J-c0-DYU"/>
+                                    <constraint firstItem="tfj-FV-K59" firstAttribute="top" secondItem="afl-mU-bZe" secondAttribute="top" constant="72" id="G6o-aB-Teg"/>
+                                    <constraint firstAttribute="trailing" secondItem="idc-TN-WlG" secondAttribute="trailing" constant="277" id="SFo-43-ZAC"/>
+                                    <constraint firstAttribute="trailing" secondItem="tfj-FV-K59" secondAttribute="trailing" constant="363.67000000000002" id="ZzE-DM-0ZO"/>
+                                    <constraint firstItem="bdz-ez-dta" firstAttribute="leading" secondItem="afl-mU-bZe" secondAttribute="leading" id="kO8-Zs-408"/>
+                                    <constraint firstItem="tfj-FV-K59" firstAttribute="leading" secondItem="afl-mU-bZe" secondAttribute="leading" constant="16" id="oed-IX-g3E"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Diw-TU-Jrk">
+                                <rect key="frame" x="0.0" y="270" width="393" height="548"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="548" id="krs-nw-jJK"/>
+                                </constraints>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="nK3-mP-1U3"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="afl-mU-bZe" firstAttribute="trailing" secondItem="nK3-mP-1U3" secondAttribute="trailing" id="CIk-DL-AzI"/>
+                            <constraint firstItem="Diw-TU-Jrk" firstAttribute="leading" secondItem="nK3-mP-1U3" secondAttribute="leading" id="D2X-Sw-qNF"/>
+                            <constraint firstItem="Diw-TU-Jrk" firstAttribute="trailing" secondItem="nK3-mP-1U3" secondAttribute="trailing" id="TaC-rF-N6z"/>
+                            <constraint firstItem="Diw-TU-Jrk" firstAttribute="top" secondItem="afl-mU-bZe" secondAttribute="bottom" id="VXg-py-msk"/>
+                            <constraint firstItem="Diw-TU-Jrk" firstAttribute="top" secondItem="afl-mU-bZe" secondAttribute="bottom" id="jXx-8d-gJx"/>
+                            <constraint firstItem="afl-mU-bZe" firstAttribute="top" secondItem="wLI-mq-07E" secondAttribute="top" id="nNw-8I-gqM"/>
+                            <constraint firstItem="afl-mU-bZe" firstAttribute="leading" secondItem="nK3-mP-1U3" secondAttribute="leading" id="wKL-oi-JwR"/>
+                            <constraint firstItem="Diw-TU-Jrk" firstAttribute="bottom" secondItem="nK3-mP-1U3" secondAttribute="bottom" id="zQt-XZ-MGM"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="headerView" destination="afl-mU-bZe" id="i64-oq-wbJ"/>
+                        <outlet property="teamsTable" destination="Diw-TU-Jrk" id="P81-Gq-4oJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YPn-xa-3JQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5333.5877862595416" y="-313.38028169014086"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="1nc-xI-AHr">
             <objects>
@@ -272,22 +352,24 @@
     </designables>
     <resources>
         <image name="chevron.backward" catalog="system" width="97" height="128"/>
-        <image name="heart" width="20" height="20"/>
+        <image name="chevron.left" catalog="system" width="97" height="128"/>
         <image name="heart" catalog="system" width="128" height="107"/>
+        <image name="heart" width="20" height="20"/>
         <image name="heart.fill" catalog="system" width="128" height="107"/>
+        <image name="league" width="512" height="512"/>
         <image name="list" width="20" height="20"/>
         <image name="soccerball" catalog="system" width="128" height="123"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="secondaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="tertiaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29803921568627451" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.29803921570000003" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

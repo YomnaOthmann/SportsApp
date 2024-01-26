@@ -246,6 +246,14 @@ extension LeagueDetailViewController : UICollectionViewDelegate, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        if indexPath.section == 2{
+            let teamDetail = self.storyboard?.instantiateViewController(withIdentifier: "team") as! TeamDetailsViewController
+            
+            teamDetail.modalPresentationStyle = .fullScreen
+            
+            self.present(teamDetail, animated: true)
+        }
+        
     }
     
 }
