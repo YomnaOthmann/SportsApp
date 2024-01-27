@@ -17,8 +17,14 @@ class LaunchScreenVC: UIViewController {
         
         lottieAnimationView.play()
        
-        DispatchQueue.main.asyncAfter(deadline: .now()+4){
-            self.performSegue(withIdentifier: "leaveLaunch", sender: self)
+        DispatchQueue.main.asyncAfter(deadline: .now()+3){
+            if AppDelegate.reachability.getReachable(){
+                self.performSegue(withIdentifier: "leaveLaunch", sender: self)
+            }else{
+                self.performSegue(withIdentifier: "noNetwork", sender: self)
+            }
+            
+            
         }
        
         

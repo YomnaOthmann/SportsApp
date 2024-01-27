@@ -14,7 +14,7 @@ target 'SportsApp' do
   use_frameworks!
 
   # Pods for SportsApp
-pod 'Alamofire' , '~> 4.0'
+pod 'Alamofire' , '~> 5.0'
 pod 'Kingfisher', '~> 7.0'
 pod 'lottie-ios'
 end

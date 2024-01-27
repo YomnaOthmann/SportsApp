@@ -8,6 +8,7 @@
 import UIKit
 
 class CustomTableViewCell: UITableViewCell {
+    
     @IBOutlet weak var leagueImage: UIImageView!
     
     @IBOutlet weak var leagueName: UILabel!

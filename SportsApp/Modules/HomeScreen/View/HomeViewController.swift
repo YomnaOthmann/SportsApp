@@ -10,6 +10,7 @@ class HomeViewController: UIViewController {
     
     var cellIndentifier = "HomeCollectionViewCell"
     var isGrid : Bool = false
+    
 
     lazy var listCollectionViewLayout: UICollectionViewFlowLayout = {
    
@@ -90,10 +91,8 @@ extension HomeViewController:UICollectionViewDelegate, UICollectionViewDataSourc
         cell.sportName.text = Constants.sportsCategoriesTitles[indexPath.row]
        
         let url = URL(string: Constants.sportsCategoriesImages[indexPath.row])
-        
         cell.sportImage.kf.setImage(with: url)
-        //cell.sportImage.image = UIImage(named: "foot")
-       
+        
         cell.sportImage.layer.cornerRadius = 16
         cell.sportImage.clipsToBounds = true
         
@@ -103,11 +102,15 @@ extension HomeViewController:UICollectionViewDelegate, UICollectionViewDataSourc
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let leaguesVC = self.storyboard?.instantiateViewController(withIdentifier: "leagues") as! SportLeaguesTableViewController
-        performSegue(withIdentifier: "showLeagues", sender: self)
+        let sportsLeaguesVC = self.storyboard?.instantiateViewController(withIdentifier: "leagues") as! SportLeaguesTableViewController
+        print(indexPath.row)
+        
+        sportsLeaguesVC.selectedIndex = indexPath.row
+        
+        self.navigationController?.pushViewController(sportsLeaguesVC, animated: true)
     }
     
-    
+  
     
     
 }

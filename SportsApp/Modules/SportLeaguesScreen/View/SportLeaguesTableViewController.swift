@@ -2,25 +2,63 @@
 
 import UIKit
 
+import Kingfisher
+
 class SportLeaguesTableViewController: UITableViewController {
 
+    var selectedIndex : Int?
+    
+    var category : String {
+        switch selectedIndex{
+        case 0:
+            return APIHelper.Sports.football.rawValue
+        case 1:
+            return APIHelper.Sports.basketball.rawValue
+        case 2:
+            return APIHelper.Sports.tennis.rawValue
+        default:
+            return APIHelper.Sports.cricket.rawValue
+        }
+    }
+    var leagues = Leagues(leagues: [])
+    
+    var viewModel = LeagueViewModel()
+    
+    let indicator = UIActivityIndicatorView(style: .large)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.tableView.register(CustomTableViewCell.nib(), forCellReuseIdentifier: CustomTableViewCell.cellReuseIdentifier)
-     
+        
+        setIndicator()
+        
+        viewModel.fetchLeagues(sport:category)
+        
+        viewModel.bindResultToViewController = {[weak self] in
+        
+            self?.leagues = (self?.viewModel.getLeagues())!
+            self?.tableView.reloadData()
+            self?.indicator.stopAnimating()
+            
+        }
+    }
+    
+    func setIndicator(){
+        indicator.center = view.center
+        indicator.color = .gray
+        indicator.startAnimating()
+        view.addSubview(indicator)
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-      
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return 10
+        return self.leagues.leagues.count
     }
 
     
@@ -28,13 +66,14 @@ class SportLeaguesTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomTableViewCell
         cell.leagueImage.clipsToBounds = true
         cell.leagueImage.layer.cornerRadius = cell.leagueImage.bounds.width / 2
-        
-       
+        cell.leagueName.text = leagues.leagues[indexPath.row].leagueName
+        let url = URL(string: leagues.leagues[indexPath.row].leagueLogo ?? "https://icon-library.com/images/win-icon/win-icon-10.jpg")
+        cell.leagueImage.kf.setImage(with: url)
         return cell
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+        return 65
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let leagueDetailsVC = self.storyboard?.instantiateViewController(withIdentifier: "leagueDetails") as! LeagueDetailViewController
@@ -42,17 +81,5 @@ class SportLeaguesTableViewController: UITableViewController {
         leagueDetailsVC.modalPresentationStyle = .fullScreen
         self.present(leagueDetailsVC, animated: true)
     }
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
 
 }

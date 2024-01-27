@@ -1,9 +1,4 @@
-//
-//  TeamDetailsViewController.swift
-//  SportsApp
-//
-//  Created by Mac on 26/01/2024.
-//
+
 
 import UIKit
 
@@ -12,6 +7,8 @@ class TeamDetailsViewController: UIViewController {
     @IBOutlet weak var headerView: UIView!
 
     @IBOutlet weak var teamsTable: UITableView!
+    
+    @IBOutlet weak var teamImage: UIImageView!
     
     let playersImages = [
         "https://apiv2.allsportsapi.com/logo/players/5466_a-letellier.jpg",
@@ -30,6 +27,8 @@ class TeamDetailsViewController: UIViewController {
         teamsTable.register(TeamPlayerCustomCell.nib(), forCellReuseIdentifier: TeamPlayerCustomCell.teamCellId)
         
         headerView.addGradient([UIColor(cgColor: CGColor(red: 33/255, green: 50/255, blue: 59/255, alpha: 1.0)),UIColor.white], locations: [0.03,0.3,0.1], frame: self.view.frame)
+        let url2 = URL(string: "https://apiv2.allsportsapi.com/logo/100_psg.jpg")
+        teamImage.kf.setImage(with: url2)
         
     }
     
@@ -50,7 +49,6 @@ extension TeamDetailsViewController : UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TeamPlayerCustomCell.teamCellId, for: indexPath) as! TeamPlayerCustomCell
-        
         cell.playerName.text = "christiano Ronaldo"
         let url = URL(string: playersImages[indexPath.row])
         cell.playerImage.kf.setImage(with: url)

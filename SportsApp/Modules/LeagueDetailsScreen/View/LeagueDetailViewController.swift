@@ -1,9 +1,4 @@
-//
-//  LeagueDetailViewController.swift
-//  SportsApp
-//
-//  Created by Mac on 25/01/2024.
-//
+
 
 import UIKit
 import Lottie
@@ -16,23 +11,21 @@ class LeagueDetailViewController: UIViewController {
     
     @IBOutlet weak var favButton: UIButton!
     
-    
     var isFav : Bool = false
-    
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.leagueNavItem.title = "English League"
         
-
         self.leagueDetailsCollectionView.delegate = self
         self.leagueDetailsCollectionView.dataSource = self
         
-        let layout = UICollectionViewCompositionalLayout{ sectionIndex, environment in
-            
+        
+        let layout = UICollectionViewCompositionalLayout{
+            sectionIndex,
+            environment in
+                
             switch sectionIndex{
            
                 case 0:
@@ -50,26 +43,27 @@ class LeagueDetailViewController: UIViewController {
             }
             
         }
-        
+      
         self.leagueDetailsCollectionView.setCollectionViewLayout(layout, animated: true)
     }
     
-    func drawUpComingEventsSection() ->
-    NSCollectionLayoutSection{
+    func drawUpComingEventsSection() -> NSCollectionLayoutSection{
+    
+    let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
+    
+    let item = NSCollectionLayoutItem(layoutSize: itemSize)
+    
+    let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(200))
+    
+    let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+    group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 32)
+    let section = NSCollectionLayoutSection(group: group)
+    section.orthogonalScrollingBehavior = .continuous
+    section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 16, bottom: 16, trailing: 0)
+    section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 16, bottom: 16, trailing: 0)
         
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
-        
-        let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(200))
-        
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-        group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 32)
-        let section = NSCollectionLayoutSection(group: group)
-        section.orthogonalScrollingBehavior = .continuous
-        section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 16, bottom: 16, trailing: 0)
-        section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 16, bottom: 16, trailing: 0)
-        
+    
+    
 //        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
 //                                                                  heightDimension: .absolute(50.0))
 //        let header = NSCollectionLayoutBoundarySupplementaryItem(
@@ -77,9 +71,9 @@ class LeagueDetailViewController: UIViewController {
 //            elementKind: UICollectionView.elementKindSectionHeader,
 //            alignment: .top)
 //        section.boundarySupplementaryItems = [header]
-        return section
-        
-    }
+    return section
+    
+}
     
     func drawLatestResultsSection() -> NSCollectionLayoutSection{
         
@@ -133,7 +127,6 @@ class LeagueDetailViewController: UIViewController {
         
     }
     
-    
     @IBAction func addToFavouties(_ sender: Any) {
         isFav = !isFav
         print(isFav)
@@ -173,7 +166,6 @@ class LeagueDetailViewController: UIViewController {
        
     }
     
-
     @IBAction func back(_ sender: Any) {
         self.dismiss(animated: true)
     }
@@ -181,29 +173,32 @@ class LeagueDetailViewController: UIViewController {
 
 extension LeagueDetailViewController : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
+    
     // MARK: UICollectionViewDataSource
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
      
+        print("section#")
         return 3
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-      
+        print("row#")
         return 5
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
+        print("cell#")
         switch indexPath.section{
         case 0 , 1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CutomCollectionViewCell.cellId, for: indexPath) as! CutomCollectionViewCell
-            let url = URL(string: "https://apiv2.allsportsapi.com/logo/96_juventus.jpg")
+            let homeTeamUrl = URL(string: "https://apiv2.allsportsapi.com/logo/110_qarabag.jpg")
+            let awayTeamUrl = URL(string: "https://apiv2.allsportsapi.com/logo/100_psg.jpg")
             
-            let backgroundUrl = URL(string:"https://img.freepik.com/vecteurs-libre/versus-vs-ecran-deux-effets-lumiere-focalises_1017-26146.jpg?w=1380&t=st=1706197856~exp=1706198456~hmac=6a0557116fa8466da62f8e2bf6d0f2c6027f473597fbf8619ed218f12a01cf32")
+            let backgroundUrl = URL(string:"https://img.freepik.com/vecteurs-libre/versus-vs-ecran-deux-effets-lumiere-focalises_1017-26146.jpg?w=1380&t=st=1706387038~exp=1706387638~hmac=353a41351651e7434394f1cb5528af4acc20ba9c75c842791432c7f9e9a73b57")
             
-            cell.homeTeamLogo.kf.setImage(with: url)
-            cell.awayTemLogo.kf.setImage(with: url)
+            cell.homeTeamLogo.kf.setImage(with: homeTeamUrl)
+            cell.awayTemLogo.kf.setImage(with: awayTeamUrl)
         
             cell.homeTeamLogo.clipsToBounds = true
             cell.awayTemLogo.clipsToBounds = true
@@ -226,26 +221,54 @@ extension LeagueDetailViewController : UICollectionViewDelegate, UICollectionVie
             let url = URL(string: "https://apiv2.allsportsapi.com/logo/100_psg.jpg")
             cell.teamImage.kf.setImage(with: url)
             cell.cellView.layer.cornerRadius = 32
-
             return cell
         }
         
-        
     }
     
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        
+        print("Header#")
+ 
+        guard let header =  collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HeaderCollectionReusableView.id, for: indexPath) as? HeaderCollectionReusableView else{
+            return UICollectionReusableView()
+        }
+
+        switch indexPath.section{
+        case 0:
+            header.hederTitle.text = "UpComing Events"
+        case 1:
+            header.hederTitle.text = "Latest Results"
+        default:
+            header.hederTitle.text = "Teams"
+        }
+        return header
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        print("size#")
+        return CGSize(width: self.view.frame.width - 30, height: 60)
+    }
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
+        print("min_inter#")
+        return 1
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        print("minline#")
+        return 1
     }
     
 
     // MARK: UICollectionViewDelegate
  
     func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
+        print("highlight#")
         return true
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        print("select#")
         if indexPath.section == 2{
             let teamDetail = self.storyboard?.instantiateViewController(withIdentifier: "team") as! TeamDetailsViewController
             

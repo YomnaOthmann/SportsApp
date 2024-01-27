@@ -20,11 +20,10 @@
                         <rect key="frame" x="10" y="10" width="271" height="96"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E0A-hv-jqE">
-                        <rect key="frame" x="112.66666666666669" y="39.333333333333343" width="66" height="37.666666666666657"/>
+                        <rect key="frame" x="112.66666666666669" y="39.666666666666671" width="66" height="36.666666666666671"/>
                         <fontDescription key="fontDescription" name="Impact" family="Impact" pointSize="30"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="shadowColor" red="0.20019262199549326" green="0.20019262199549326" blue="0.20019262199549326" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </label>
                 </subviews>
             </view>
