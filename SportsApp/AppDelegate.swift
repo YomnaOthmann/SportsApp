@@ -1,9 +1,4 @@
-//
-//  AppDelegate.swift
-//  SportsApp
-//
-//  Created by Mac on 21/01/2024.
-//
+
 
 import UIKit
 

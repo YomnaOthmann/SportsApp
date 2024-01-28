@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 struct Event : Codable{
     
     var homeTeamName : String

@@ -28,9 +28,7 @@ class NetworkRequestHandler : NetworkRequestProtocol{
             }
             self?.result = leagues
             completionHandler(self?.result)
-            print(self?.result.leagues[0].leagueName ?? "")
-            print(self?.result.leagues[0].leagueId ?? "")
-            print(self?.result.leagues[2].leagueLogo ?? "ll")
+            
 
         }
     }

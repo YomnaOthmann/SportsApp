@@ -7,6 +7,7 @@
 
 import Foundation
 
+
 struct League : Codable{
     
     var leagueId : Int
@@ -24,4 +25,3 @@ struct League : Codable{
         case leagueName = "league_name"
         case leagueLogo = "league_logo"
     }
-}

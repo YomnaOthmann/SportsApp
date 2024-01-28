@@ -3,7 +3,7 @@
 import UIKit
 import Lottie
 
-class LeagueDetailViewController: UIViewController {
+class LeagueDetailViewController: UIViewController ,UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
 
     @IBOutlet weak var leagueNavItem: UINavigationItem!
 
@@ -169,9 +169,6 @@ class LeagueDetailViewController: UIViewController {
     @IBAction func back(_ sender: Any) {
         self.dismiss(animated: true)
     }
-}
-
-extension LeagueDetailViewController : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
     
     // MARK: UICollectionViewDataSource
