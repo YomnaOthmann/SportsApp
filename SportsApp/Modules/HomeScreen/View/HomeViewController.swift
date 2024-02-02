@@ -35,6 +35,9 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         self.tabBarController?.title = "Sports"
+        self.tabBarController?.navigationItem.leftBarButtonItem?.title = ""
+        self.tabBarController?.navigationItem.leftBarButtonItem?.tintColor = .black
+        
         
         self.tabBarController?.navigationItem.setHidesBackButton(true, animated: true)
         

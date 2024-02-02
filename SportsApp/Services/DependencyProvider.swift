@@ -23,8 +23,11 @@ struct DependencyProvider{
         
         return vc
     }
+    static var leaguesViewModel : LeagueDetailsViewModel{
+        return LeagueDetailsViewModel(networkRequest: networkRequestHandler)
+    }
     
-    
+   
     
     
 }

@@ -28,7 +28,6 @@ struct Event : Codable{
         self.eventTime = eventTime
         self.finalResult = finalResult
     }
-    
     enum CodingKeys : String , CodingKey{
         
         case homeTeamName = "event_home_team"

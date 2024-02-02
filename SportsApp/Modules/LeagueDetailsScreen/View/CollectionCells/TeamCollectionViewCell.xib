@@ -20,7 +20,7 @@
                         <rect key="frame" x="0.0" y="54" width="200" height="196"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wiV-wz-LCO">
-                                <rect key="frame" x="16" y="135.33333333333334" width="168" height="28.666666666666657"/>
+                                <rect key="frame" x="16" y="151.33333333333334" width="168" height="28.666666666666657"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="24"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -30,11 +30,11 @@
                         <constraints>
                             <constraint firstItem="wiV-wz-LCO" firstAttribute="leading" secondItem="c0E-aQ-vg8" secondAttribute="leading" constant="16" id="4Lv-hV-HSc"/>
                             <constraint firstAttribute="trailing" secondItem="wiV-wz-LCO" secondAttribute="trailing" constant="16" id="Q3j-KT-dBD"/>
-                            <constraint firstAttribute="bottom" secondItem="wiV-wz-LCO" secondAttribute="bottom" constant="32" id="byF-bh-XEV"/>
+                            <constraint firstAttribute="bottom" secondItem="wiV-wz-LCO" secondAttribute="bottom" constant="16" id="byF-bh-XEV"/>
                         </constraints>
                     </view>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="league" translatesAutoresizingMaskIntoConstraints="NO" id="fVJ-J8-O1w">
-                        <rect key="frame" x="0.0" y="16" width="200" height="162"/>
+                        <rect key="frame" x="0.0" y="16" width="200" height="178"/>
                     </imageView>
                 </subviews>
             </view>
@@ -45,7 +45,7 @@
                 <constraint firstItem="fVJ-J8-O1w" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="OPL-f1-4eh"/>
                 <constraint firstAttribute="trailing" secondItem="fVJ-J8-O1w" secondAttribute="trailing" id="SpK-sI-rj7"/>
                 <constraint firstItem="c0E-aQ-vg8" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="54" id="k0F-AY-JJg"/>
-                <constraint firstAttribute="bottom" secondItem="fVJ-J8-O1w" secondAttribute="bottom" constant="72" id="qfp-kb-aIY"/>
+                <constraint firstAttribute="bottom" secondItem="fVJ-J8-O1w" secondAttribute="bottom" constant="56" id="qfp-kb-aIY"/>
                 <constraint firstAttribute="trailing" secondItem="c0E-aQ-vg8" secondAttribute="trailing" id="y1c-JV-S1B"/>
                 <constraint firstItem="fVJ-J8-O1w" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="16" id="zkW-Gn-OQD"/>
             </constraints>

@@ -16,6 +16,7 @@ class Constants{
          "https://i.pinimg.com/originals/6e/e6/72/6ee672155d0bd0874968a6474c493f8d.jpg",
          "https://i.pinimg.com/originals/a8/43/86/a843869471dc8e9699a158e8291b0781.jpg"
     ]
+    
     static let sportsCategoriesTitles = [
         "Football",
         "Basketball",
@@ -23,6 +24,8 @@ class Constants{
         "Cricket"
     ]
     
+    static let eventBackgroundImage = "https://img.freepik.com/vecteurs-libre/versus-vs-ecran-deux-effets-lumiere-focalises_1017-26146.jpg?w=1380&t=st=1706387038~exp=1706387638~hmac=353a41351651e7434394f1cb5528af4acc20ba9c75c842791432c7f9e9a73b57"
+    static let leagueLogoPlaceholder = "https://icon-library.com/images/win-icon/win-icon-10.jpg"
 }
 
 

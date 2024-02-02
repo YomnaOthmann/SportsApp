@@ -9,11 +9,7 @@ import Foundation
 
 struct Teams : Codable{
     var teams : [Team]
-    
-    init(teams: [Team]) {
-        self.teams = teams
-    }
-    
+
     enum CodingKeys : String , CodingKey{
         case teams = "result"
     }

@@ -1,7 +1,6 @@
 
 
 import UIKit
-
 import Kingfisher
 
 class SportLeaguesTableViewController: UITableViewController {
@@ -20,6 +19,7 @@ class SportLeaguesTableViewController: UITableViewController {
             return APIHelper.Sports.cricket.rawValue
         }
     }
+    
     var leagues = Leagues(leagues: [])
     
     var viewModel = LeagueViewModel()
@@ -28,7 +28,7 @@ class SportLeaguesTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("category = \(category)")
         self.tableView.register(CustomTableViewCell.nib(), forCellReuseIdentifier: CustomTableViewCell.cellReuseIdentifier)
         
         setIndicator()
@@ -67,7 +67,7 @@ class SportLeaguesTableViewController: UITableViewController {
         cell.leagueImage.clipsToBounds = true
         cell.leagueImage.layer.cornerRadius = cell.leagueImage.bounds.width / 2
         cell.leagueName.text = leagues.leagues[indexPath.row].leagueName
-        let url = URL(string: leagues.leagues[indexPath.row].leagueLogo ?? "https://icon-library.com/images/win-icon/win-icon-10.jpg")
+        let url = URL(string: leagues.leagues[indexPath.row].leagueLogo ?? Constants.leagueLogoPlaceholder)
         cell.leagueImage.kf.setImage(with: url)
         return cell
     }
@@ -77,6 +77,15 @@ class SportLeaguesTableViewController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let leagueDetailsVC = self.storyboard?.instantiateViewController(withIdentifier: "leagueDetails") as! LeagueDetailViewController
+        
+        print("from leagues : leagueId = \(leagues.leagues[indexPath.row].leagueId)")
+        leagueDetailsVC.leagueId = leagues.leagues[indexPath.row].leagueId
+        
+        leagueDetailsVC.category = category
+        print("from leagues : category = \(category)")
+        
+        leagueDetailsVC.leagueName = leagues.leagues[indexPath.row].leagueName
+        print("from leagues : leagueName = \(leagues.leagues[indexPath.row].leagueName)")
         
         leagueDetailsVC.modalPresentationStyle = .fullScreen
         self.present(leagueDetailsVC, animated: true)

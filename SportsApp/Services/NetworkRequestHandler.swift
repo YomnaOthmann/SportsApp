@@ -1,52 +1,29 @@
-//
-//  NetworkRequestHandler.swift
-//  SportsApp
-//
-//  Created by Mac on 27/01/2024.
-//
+
 
 import Foundation
 import Alamofire
+
 protocol NetworkRequestProtocol{
     
-    func fetchLeagues(url: String, completionHandler: @escaping(Leagues?)->Void)
-    func fetchTeams(url:String)
-    func fetchUpComingEvents(url:String)
-    func fetchLatestResults(url:String)
-    func fetchTeamPlayers(url:String)
-    
+    func fetchData<T:Decodable>(url: String, completionHandler: @escaping(T?)->Void)
+       
 }
-class NetworkRequestHandler : NetworkRequestProtocol{
-    var result = Leagues(leagues: [])
 
-    func fetchLeagues(url: String, completionHandler:@escaping(Leagues?)->Void) {
+class NetworkRequestHandler : NetworkRequestProtocol{
+    
+    func fetchData<T:Decodable>(url: String, completionHandler:@escaping(T?)->Void) {
+        var data : T?
         
-        AF.request(url).validate().responseDecodable(of: Leagues.self){[weak self] (response) in
-            guard let leagues = response.value else{
+        AF.request(url).validate().responseDecodable(of: T.self){ (response) in
+            guard let result = response.value else{
                 completionHandler(nil)
                 return
             }
-            self?.result = leagues
-            completionHandler(self?.result)
+            data = result
             
+            completionHandler(data)
 
         }
-    }
-    
-    func fetchTeams(url: String) {
-        
-    }
-    
-    func fetchUpComingEvents(url: String) {
-        
-    }
-    
-    func fetchLatestResults(url: String) {
-        
-    }
-    
-    func fetchTeamPlayers(url: String) {
-        
     }
     
     

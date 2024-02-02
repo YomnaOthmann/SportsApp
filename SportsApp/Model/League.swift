@@ -1,12 +1,4 @@
-//
-//  LeagueModel.swift
-//  SportsApp
-//
-//  Created by Mac on 27/01/2024.
-//
-
 import Foundation
-
 
 struct League : Codable{
     
@@ -25,3 +17,4 @@ struct League : Codable{
         case leagueName = "league_name"
         case leagueLogo = "league_logo"
     }
+}
