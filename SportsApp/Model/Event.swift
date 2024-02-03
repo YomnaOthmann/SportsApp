@@ -14,12 +14,15 @@ struct Event : Codable{
     var awayTeamName : String
     var awayTeamLogo : String
     
+    var homeTeamKey : Int
+    var awayTeamKey : Int
+    
     var eventDate : String
     var eventTime : String
     
     var finalResult : String
     
-    init(homeTeamName: String, homeTeamLogo: String, awayTeamName: String, awayTeamLogo: String, eventDate: String, eventTime: String, finalResult: String) {
+    init(homeTeamName: String, homeTeamLogo: String, awayTeamName: String, awayTeamLogo: String, eventDate: String, eventTime: String, finalResult: String, homeTeamKey:Int, awayTeamKey:Int) {
         self.homeTeamName = homeTeamName
         self.homeTeamLogo = homeTeamLogo
         self.awayTeamName = awayTeamName
@@ -27,6 +30,8 @@ struct Event : Codable{
         self.eventDate = eventDate
         self.eventTime = eventTime
         self.finalResult = finalResult
+        self.homeTeamKey = homeTeamKey
+        self.awayTeamKey = awayTeamKey
     }
     enum CodingKeys : String , CodingKey{
         
@@ -37,5 +42,7 @@ struct Event : Codable{
         case eventDate = "event_date"
         case eventTime = "event_time"
         case finalResult = "event_final_result"
+        case homeTeamKey = "home_team_key"
+        case awayTeamKey = "away_team_key"
     }
 }

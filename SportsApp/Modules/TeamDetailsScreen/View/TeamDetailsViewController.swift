@@ -5,33 +5,61 @@ import UIKit
 class TeamDetailsViewController: UIViewController {
 
     @IBOutlet weak var headerView: UIView!
-
     @IBOutlet weak var teamsTable: UITableView!
-    
+    @IBOutlet weak var teamName: UILabel!
     @IBOutlet weak var teamImage: UIImageView!
     
-    let playersImages = [
-        "https://apiv2.allsportsapi.com/logo/players/5466_a-letellier.jpg",
-        "https://apiv2.allsportsapi.com/logo/players/8006_danilo-pereira.jpg",
-        "https://apiv2.allsportsapi.com/logo/players/8897_l-kurzawa.jpg",
-        "https://apiv2.allsportsapi.com/logo/players/11183_sergio-rico.jpg",
-        "https://apiv2.allsportsapi.com/logo/players/14159_marquinhos.jpg",
-        "https://apiv2.allsportsapi.com/logo/players/20423_m-kriniar.jpg"
-    ]
+    let indicator = UIActivityIndicatorView(style: .large)
+    
+    var selectedTeam : Team!
+    var team : Teams?
+    var category : String!
+    var leagueId : Int!
+    
+    let viewModel = TeamViewModel(networkRequest: DependencyProvider.networkRequestHandler)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         teamsTable.delegate = self
         teamsTable.dataSource = self
+        
         teamsTable.register(TeamPlayerCustomCell.nib(), forCellReuseIdentifier: TeamPlayerCustomCell.teamCellId)
         
         headerView.addGradient([UIColor(cgColor: CGColor(red: 33/255, green: 50/255, blue: 59/255, alpha: 1.0)),UIColor.white], locations: [0.03,0.3,0.1], frame: self.view.frame)
-        let url2 = URL(string: "https://apiv2.allsportsapi.com/logo/100_psg.jpg")
-        teamImage.kf.setImage(with: url2)
         
+        let url = URL(string: selectedTeam?.teamLogo ?? "")
+        teamImage.kf.setImage(with: url)
+        teamName.text = selectedTeam?.teamName
+        
+        setIndicator()
+        
+        fetchTeam()
     }
     
+    func fetchTeam(){
+        
+        viewModel.fetchTeams(sport: category, leagueID: leagueId, teamId: selectedTeam
+            .teamKey)
+        
+        viewModel.isRetrieveTeams.bind { [weak self] state in
+            guard let state = state else{
+                return
+            }
+            if !(self?.team?.teams.isEmpty ?? false && state){
+                self?.team = self?.viewModel.teams
+                self?.indicator.stopAnimating()
+                self?.teamsTable.reloadData()
+            }
+        }
+    }
+    
+    func setIndicator(){
+        indicator.center = view.center
+        indicator.color = .gray
+        indicator.startAnimating()
+        view.addSubview(indicator)
+    }
     @IBAction func back(_ sender: Any) {
         self.dismiss(animated: false)
     }
@@ -44,17 +72,17 @@ extension TeamDetailsViewController : UITableViewDelegate, UITableViewDataSource
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return team?.teams[0].teamPlayers?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TeamPlayerCustomCell.teamCellId, for: indexPath) as! TeamPlayerCustomCell
-        cell.playerName.text = "christiano Ronaldo"
-        let url = URL(string: playersImages[indexPath.row])
+        cell.playerName.text = team?.teams[0].teamPlayers?[indexPath.row].playerName
+        let url = URL(string: team?.teams[0].teamPlayers?[indexPath.row].playerImage ?? "")
         cell.playerImage.kf.setImage(with: url)
         cell.playerImage.clipsToBounds = true
         cell.playerImage.layer.cornerRadius = 27
-        cell.playerPosition.text = "GoalKeeper"
+        cell.playerPosition.text = team?.teams[0].teamPlayers?[indexPath.row].playerPosition
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

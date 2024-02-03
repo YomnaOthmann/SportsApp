@@ -17,6 +17,9 @@ struct DependencyProvider{
     static var networkReachability : NetworkReachabilityProtocol{
         return NetworkReachabilityHandler()
     }
+    static var database : DatabaseManagerProtocol{
+        return DatabaseManager.getInstance()
+    }
     
     static var rootViewController: UINavigationController{
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as! UINavigationController

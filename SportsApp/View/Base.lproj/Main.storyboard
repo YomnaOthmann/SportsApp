@@ -319,6 +319,7 @@
                     <connections>
                         <outlet property="headerView" destination="afl-mU-bZe" id="i64-oq-wbJ"/>
                         <outlet property="teamImage" destination="idc-TN-WlG" id="oOd-7b-Pm5"/>
+                        <outlet property="teamName" destination="bdz-ez-dta" id="DT3-Rx-i9x"/>
                         <outlet property="teamsTable" destination="Diw-TU-Jrk" id="P81-Gq-4oJ"/>
                     </connections>
                 </viewController>

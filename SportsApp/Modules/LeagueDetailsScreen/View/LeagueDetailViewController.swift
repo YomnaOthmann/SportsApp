@@ -13,12 +13,13 @@ class LeagueDetailViewController: UIViewController ,UICollectionViewDelegate, UI
     
     var isFav : Bool = false
     
-    var leagueId: Int!
-    var category:String!
-    var leagueName:String!
+    var selectedLeague : League!
+    
+    var category:String?
     
     var upcomingEvents : [Event] = []
     var latestResults : [Event] = []
+    
     var leagueTeams : [Team] = []
     
     let viewModel = LeagueDetailsViewModel(networkRequest: DependencyProvider.networkRequestHandler)
@@ -28,7 +29,7 @@ class LeagueDetailViewController: UIViewController ,UICollectionViewDelegate, UI
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.leagueNavItem.title = leagueName
+        self.leagueNavItem.title = selectedLeague.leagueName
         
         leagueDetailsCollectionView.delegate = self
         leagueDetailsCollectionView.dataSource = self
@@ -37,7 +38,6 @@ class LeagueDetailViewController: UIViewController ,UICollectionViewDelegate, UI
        
         fetchUpcoming()
         fetchLatestResults()
-        fetchTeams()
         
         let layout = UICollectionViewCompositionalLayout{
             sectionIndex,
@@ -62,16 +62,22 @@ class LeagueDetailViewController: UIViewController ,UICollectionViewDelegate, UI
         }
       
         self.leagueDetailsCollectionView.setCollectionViewLayout(layout, animated: true)
+        
         leagueDetailsCollectionView.register(NoDataCollectionViewCell.nib(), forCellWithReuseIdentifier: NoDataCollectionViewCell.id)
+        
         self.leagueDetailsCollectionView.reloadData()
     }
     func fetchUpcoming(){
-        viewModel.fetchUpcomingEvents(sport: category, leagueID: leagueId)
+       
+        viewModel.fetchUpcomingEvents(sport: (category ?? APIHelper.Sports.football.rawValue) , leagueID: selectedLeague.leagueId)
+        
         viewModel.isRetrieveUpcomingEvents.bind(){ [weak self] state in
+            
             guard let state = state else{
                 return
             }
             self?.indicator.stopAnimating()
+            
             if !(self?.viewModel.upcoming.events.isEmpty ?? false && state){
                 self?.upcomingEvents = self?.viewModel.upcoming.events ?? []
                 self?.leagueDetailsCollectionView.reloadData()
@@ -80,7 +86,9 @@ class LeagueDetailViewController: UIViewController ,UICollectionViewDelegate, UI
     }
     
     func fetchLatestResults(){
-        viewModel.fetchLatestResults(sport: category, leagueID: leagueId)
+       
+        viewModel.fetchLatestResults(sport: category ?? APIHelper.Sports.football.rawValue, leagueID: selectedLeague.leagueId)
+        
         viewModel.isRetrieveLatestResult.bind(){ [weak self] state in
             guard let state = state else{
                 return
@@ -88,27 +96,35 @@ class LeagueDetailViewController: UIViewController ,UICollectionViewDelegate, UI
             self?.indicator.stopAnimating()
             if !(self?.viewModel.latest.events.isEmpty ?? false && state){
                 self?.latestResults = self?.viewModel.latest.events ?? []
+                self?.getTeams()
                 self?.leagueDetailsCollectionView.reloadData()
             }
         }
     }
     
-    func fetchTeams(){
-        viewModel.fetchTeams(sport: category, leagueID: leagueId)
-        viewModel.isRetrieveTeams.bind(){ [weak self] state in
-            guard let state = state else{
-                return
-            }
-            self?.indicator.stopAnimating()
-            if !(self?.viewModel.teams.teams.isEmpty ?? false && state){
-                self?.leagueTeams = self?.viewModel.teams.teams ?? []
-                self?.leagueDetailsCollectionView.reloadData()
-            }
+    func getTeams(){
+        leagueTeams = []
+        for event in upcomingEvents{
+            leagueTeams.append(
+                Team(
+                    teamName: event.awayTeamName,
+                    teamLogo: event.awayTeamLogo,
+                    teamKey: event.awayTeamKey
+                )
+            )
         }
+        for event in latestResults{
+            leagueTeams.append(
+                Team(
+                    teamName: event.homeTeamName,
+                    teamLogo: event.homeTeamLogo,
+                    teamKey: event.homeTeamKey
+                )
+            )
+            
+        }
+        
     }
-    
-
-
     
     func setIndicator(){
         indicator.center = view.center
@@ -227,13 +243,16 @@ class LeagueDetailViewController: UIViewController ,UICollectionViewDelegate, UI
                 
                 animationView.play()
                
+                
             }
+            viewModel.addToFavourites(league: selectedLeague)
             DispatchQueue.main.asyncAfter(deadline: .now()+1.5){
                 animationView.stop()
                 animationView.removeFromSuperview()
             }
         }
         else{
+            viewModel.removeFromFavourites(id: selectedLeague.leagueId)
             favButton.setImage(UIImage(named: "heart"), for: .normal)
         }
         
@@ -394,9 +413,10 @@ extension LeagueDetailViewController{
         
         if indexPath.section == 2 && leagueTeams.count != 0{
             let teamDetail = self.storyboard?.instantiateViewController(withIdentifier: "team") as! TeamDetailsViewController
-            
+            teamDetail.category = category
             teamDetail.modalPresentationStyle = .fullScreen
-            
+            teamDetail.leagueId = selectedLeague.leagueId
+            teamDetail.selectedTeam = leagueTeams[indexPath.row]
             self.present(teamDetail, animated: true)
         }
         

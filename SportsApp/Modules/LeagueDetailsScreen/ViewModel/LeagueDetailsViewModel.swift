@@ -10,6 +10,8 @@ import Foundation
 
 class LeagueDetailsViewModel{
     
+    let database = DependencyProvider.database
+    
     let networkRequest: NetworkRequestProtocol
     
     let dateFormatter = DateFormatter()
@@ -20,17 +22,11 @@ class LeagueDetailsViewModel{
     var isRetrieveLatestResult : Observable<Bool>
     var latest : Events
     
-    var isRetrieveTeams : Observable<Bool>
-    var teams : Teams
-    
     init(networkRequest: NetworkRequestProtocol) {
         self.networkRequest = networkRequest
         
         isRetrieveUpcomingEvents = Observable(value: nil)
         upcoming = Events(events: [])
-        
-        isRetrieveTeams  = Observable(value: nil)
-        teams = Teams(teams: [])
         
         isRetrieveLatestResult  = Observable(value: nil)
         latest = Events(events: [])
@@ -91,19 +87,11 @@ class LeagueDetailsViewModel{
         }
     }
     
-    func fetchTeams(sport:String, leagueID:Int ){
-        let url = APIHelper.baseURL + sport + APIHelper.EndPoints.teams.rawValue + APIHelper.EndPointsParam.leagueId.rawValue + String(leagueID) + APIHelper.EndPointsParam.apiKey.rawValue + APIHelper.apiKey
-        
-        let url2 = "https://apiv2.allsportsapi.com/football/?&met=Teams&leagueId=152&APIkey=fed3a52ea9f8c40c84d5bb10a9be1930aa2702de4bb0b9bc4e2f6f94858fa3ee"
-       print(url)
-        networkRequest.fetchData(url: url2) {[weak self] data in
-            guard let teams: Teams = data else{
-                self?.isRetrieveTeams.value = false
-                return
-            }
-            self?.teams = teams
-            self?.isRetrieveTeams.value = true
-        }
+    func addToFavourites(league:League){
+        database.addToFavourites(league: league)
+    }
+    func removeFromFavourites(id:Int){
+        database.removeFromFavourites(leagueId: id)
     }
     
 }

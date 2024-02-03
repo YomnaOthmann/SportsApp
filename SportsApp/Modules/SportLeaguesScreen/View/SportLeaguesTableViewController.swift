@@ -78,14 +78,10 @@ class SportLeaguesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let leagueDetailsVC = self.storyboard?.instantiateViewController(withIdentifier: "leagueDetails") as! LeagueDetailViewController
         
-        print("from leagues : leagueId = \(leagues.leagues[indexPath.row].leagueId)")
-        leagueDetailsVC.leagueId = leagues.leagues[indexPath.row].leagueId
-        
+        leagueDetailsVC.selectedLeague = leagues.leagues[indexPath.row]
+                
         leagueDetailsVC.category = category
-        print("from leagues : category = \(category)")
         
-        leagueDetailsVC.leagueName = leagues.leagues[indexPath.row].leagueName
-        print("from leagues : leagueName = \(leagues.leagues[indexPath.row].leagueName)")
         
         leagueDetailsVC.modalPresentationStyle = .fullScreen
         self.present(leagueDetailsVC, animated: true)

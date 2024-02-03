@@ -5,6 +5,7 @@ struct League : Codable{
     var leagueId : Int
     var leagueName : String
     var leagueLogo : String?
+    var category : String?
     
     init(leagueId: Int, leagueName: String, leagueLogo: String? = nil) {
         self.leagueId = leagueId
