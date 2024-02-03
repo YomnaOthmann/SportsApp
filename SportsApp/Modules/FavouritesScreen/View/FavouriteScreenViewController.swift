@@ -39,14 +39,14 @@ class FavouriteScreenViewController: UIViewController {
         networkMonitor.start(queue: queue)
         
         viewModel = FavouriteScreenViewModel(database: database)
-        
-        favouriteLeagues = viewModel.fetchData()
-        
+
         favouritesTable.reloadData()
         
         favouritesTable.register(CustomTableViewCell.nib(), forCellReuseIdentifier: CustomTableViewCell.cellReuseIdentifier)
     }
     override func viewDidAppear(_ animated: Bool) {
+        print("did appear")
+        favouriteLeagues = viewModel.fetchData()
         favouritesTable.reloadData()
     }
 

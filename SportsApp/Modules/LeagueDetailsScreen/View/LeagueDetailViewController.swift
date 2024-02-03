@@ -34,6 +34,14 @@ class LeagueDetailViewController: UIViewController ,UICollectionViewDelegate, UI
         leagueDetailsCollectionView.delegate = self
         leagueDetailsCollectionView.dataSource = self
         
+        if viewModel.isFavourite(league: selectedLeague){
+            isFav = true
+            favButton.setImage(UIImage(named: "heartred"), for: .normal)
+        }else{
+            isFav = false
+            favButton.setImage(UIImage(named: "heart"), for: .normal)
+        }
+        
         setIndicator()
        
         fetchUpcoming()
@@ -63,9 +71,16 @@ class LeagueDetailViewController: UIViewController ,UICollectionViewDelegate, UI
       
         self.leagueDetailsCollectionView.setCollectionViewLayout(layout, animated: true)
         
+        
+        
+        
+        
         leagueDetailsCollectionView.register(NoDataCollectionViewCell.nib(), forCellWithReuseIdentifier: NoDataCollectionViewCell.id)
         
         self.leagueDetailsCollectionView.reloadData()
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        leagueDetailsCollectionView.reloadData()
     }
     func fetchUpcoming(){
        

@@ -21,7 +21,7 @@ class LeagueDetailsViewModel{
     
     var isRetrieveLatestResult : Observable<Bool>
     var latest : Events
-    
+        
     init(networkRequest: NetworkRequestProtocol) {
         self.networkRequest = networkRequest
         
@@ -92,6 +92,11 @@ class LeagueDetailsViewModel{
     }
     func removeFromFavourites(id:Int){
         database.removeFromFavourites(leagueId: id)
+    }
+    func isFavourite(league:League)->Bool{
+        return database.fetchData().contains(){
+            $0.leagueId == league.leagueId
+        }
     }
     
 }

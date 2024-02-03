@@ -72,7 +72,13 @@ extension TeamDetailsViewController : UITableViewDelegate, UITableViewDataSource
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return team?.teams[0].teamPlayers?.count ?? 0
+        if team?.teams[0].teamPlayers?.count != 0 {
+            return team?.teams[0].teamPlayers?.count ?? 0
+        }
+        else{
+            return 0
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
