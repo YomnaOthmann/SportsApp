@@ -63,7 +63,7 @@ class LeagueDetailsViewModel{
         let url = APIHelper.baseURL + sport + APIHelper.EndPoints.fixtures.rawValue + APIHelper.EndPointsParam.leagueId.rawValue + String(leagueID)  + APIHelper.EndPointsParam.from.rawValue + setDate().currentYearDate + APIHelper.EndPointsParam.to.rawValue + setDate().afterOneYearDate +  APIHelper.EndPointsParam.apiKey.rawValue + APIHelper.apiKey
       
                
-        networkRequest.fetchData(url: url) {[weak self] events in
+        networkRequest.fetchData(url: url) {[weak self] events, error  in
             guard let events:Events = events else{
                 self?.isRetrieveUpcomingEvents.value = false
                 return
@@ -76,7 +76,7 @@ class LeagueDetailsViewModel{
       
         let url = APIHelper.baseURL + sport  + APIHelper.EndPoints.fixtures.rawValue + APIHelper.EndPointsParam.leagueId.rawValue + String(leagueID) + APIHelper.EndPointsParam.from.rawValue + setDate().oneYearBeforeDate + APIHelper.EndPointsParam.to.rawValue + setDate().currentYearDate +  APIHelper.EndPointsParam.apiKey.rawValue + APIHelper.apiKey
 
-        networkRequest.fetchData(url: url) {[weak self] events in
+        networkRequest.fetchData(url: url) {[weak self] events, error in
             guard let events:Events = events else{
                 self?.isRetrieveLatestResult.value = false
                 return

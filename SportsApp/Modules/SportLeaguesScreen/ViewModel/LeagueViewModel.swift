@@ -16,8 +16,9 @@ class LeagueViewModel{
     func fetchLeagues(sport:String){
         let url = APIHelper.baseURL + sport + APIHelper.EndPoints.leagues.rawValue + APIHelper.EndPointsParam.apiKey.rawValue + APIHelper.apiKey
         
-        networkRequest.fetchData(url: url) { [weak self] leagues in
+        networkRequest.fetchData(url: url) { [weak self] leagues, error in
             guard let leagues:Leagues = leagues else{
+                
                 return
             }
             self?.result = leagues

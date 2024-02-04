@@ -25,7 +25,6 @@ class NetworkReachabilityHandler : NetworkReachabilityProtocol{
                     self?.reachable = true
             }
         })
-     
     }
     
     func getReachable()->Bool{

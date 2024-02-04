@@ -8,7 +8,7 @@
 import XCTest
 @testable import SportsApp
 final class NetworkReachabilityHandlerTests: XCTestCase {
-    let reachability = NetworkReachabilityHandler()
+    let reachability : NetworkReachabilityProtocol = NetworkReachabilityHandler()
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -18,23 +18,36 @@ final class NetworkReachabilityHandlerTests: XCTestCase {
     }
 
     func testStartNetworkMonitoringReachable(){
-        let expectation = expectation(description: "Test Reachability")
+        
+        let expectation = expectation(description: "Test Reachable")
+        
         reachability.startNetworkMonitoring()
+
+        if reachability.getReachable(){
+            XCTAssertTrue(reachability.getReachable())
+            expectation.fulfill()
+        }else{
+            XCTFail()
+            expectation.fulfill()
+        }
         
-        XCTAssertTrue(reachability.getReachable(), "Not Reachable")
-        expectation.fulfill()
-        
+        self.waitForExpectations(timeout: 5)
+
     }
     
-    
-    func testStartNetworkMonitoringShouldFail(){
+    func testStartNetworkMonitoringNotReachable(){
+        let expectation = expectation(description: "Test Not Reachable")
         
-        let expectation = expectation(description: "Test Reachability")
         reachability.startNetworkMonitoring()
+        if reachability.getReachable(){
+            XCTFail()
+            expectation.fulfill()
+        }else{
+            XCTAssertFalse(reachability.getReachable())
+            expectation.fulfill()
+        }
         
-        
-        XCTAssertTrue(reachability.getReachable(), "Not Reachable")
-        expectation.fulfill()
-        
+        waitForExpectations(timeout: 5)
     }
+    
 }

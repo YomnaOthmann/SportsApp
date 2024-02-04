@@ -138,7 +138,6 @@ class LeagueDetailViewController: UIViewController ,UICollectionViewDelegate, UI
             )
             
         }
-        
     }
     
     func setIndicator(){
@@ -315,7 +314,7 @@ extension LeagueDetailViewController{
         case 0:
             return upcomingEvents.count == 0 ? 1 : upcomingEvents.count
         case 1:
-            return latestResults.count == 0 ? 1 : latestResults.count
+            return latestResults.count == 0 ? 1 : latestResults.count / 3
         default:
             return leagueTeams.count == 0 ? 1 : leagueTeams.count
         }
