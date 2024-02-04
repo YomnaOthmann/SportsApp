@@ -8,7 +8,7 @@
 import Foundation
 
 struct Teams : Codable{
-    var teams : [Team]
+    var teams : [Team]?
 
     enum CodingKeys : String , CodingKey{
         case teams = "result"

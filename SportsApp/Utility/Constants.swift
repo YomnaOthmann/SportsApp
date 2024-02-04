@@ -24,7 +24,7 @@ class Constants{
         "Cricket"
     ]
     
-    static let eventBackgroundImage = "https://img.freepik.com/vecteurs-libre/versus-vs-ecran-deux-effets-lumiere-focalises_1017-26146.jpg?w=1380&t=st=1706387038~exp=1706387638~hmac=353a41351651e7434394f1cb5528af4acc20ba9c75c842791432c7f9e9a73b57"
+    static let eventBackgroundImage = "https://img.freepik.com/vecteurs-libre/versus-vs-ecran-deux-effets-lumiere-focalises_1017-26146.jpg?w=1380&t=st=1707043686~exp=1707044286~hmac=0a676d5913d9f332904f4819b18ae2f3e2aeee901a4cc40dc7becc19c1fbe5d9"
     static let leagueLogoPlaceholder = "https://icon-library.com/images/win-icon/win-icon-10.jpg"
 }
 

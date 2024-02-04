@@ -343,7 +343,7 @@ extension LeagueDetailViewController{
                 cell.awayTemLogo.clipsToBounds = true
                 cell.awayTemLogo.layer.cornerRadius = 35
                 cell.awayTeamName.text = upcomingEvents[indexPath.row].awayTeamName
-                
+                cell.finalScore.isHidden = true
                 
                 cell.eventDate.text = upcomingEvents[indexPath.row].eventDate
                 cell.eventTime.text = upcomingEvents[indexPath.row].eventTime

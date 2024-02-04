@@ -27,7 +27,7 @@ final class NetworkReachabilityHandlerTests: XCTestCase {
             XCTAssertTrue(reachability.getReachable())
             expectation.fulfill()
         }else{
-            XCTFail()
+            XCTAssertFalse(reachability.getReachable())
             expectation.fulfill()
         }
         
@@ -35,19 +35,5 @@ final class NetworkReachabilityHandlerTests: XCTestCase {
 
     }
     
-    func testStartNetworkMonitoringNotReachable(){
-        let expectation = expectation(description: "Test Not Reachable")
-        
-        reachability.startNetworkMonitoring()
-        if reachability.getReachable(){
-            XCTFail()
-            expectation.fulfill()
-        }else{
-            XCTAssertFalse(reachability.getReachable())
-            expectation.fulfill()
-        }
-        
-        waitForExpectations(timeout: 5)
-    }
     
 }

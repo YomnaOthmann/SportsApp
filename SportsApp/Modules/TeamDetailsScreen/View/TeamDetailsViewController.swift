@@ -13,7 +13,7 @@ class TeamDetailsViewController: UIViewController {
     
     var selectedTeam : Team!
     var team : Teams?
-    var category : String!
+    var category : String?
     var leagueId : Int!
     
     let viewModel = TeamViewModel(networkRequest: DependencyProvider.networkRequestHandler)
@@ -39,14 +39,14 @@ class TeamDetailsViewController: UIViewController {
     
     func fetchTeam(){
         
-        viewModel.fetchTeams(sport: category, leagueID: leagueId, teamId: selectedTeam
+        viewModel.fetchTeams(sport: category ?? APIHelper.Sports.football.rawValue, leagueID: leagueId, teamId: selectedTeam
             .teamKey)
         
         viewModel.isRetrieveTeams.bind { [weak self] state in
             guard let state = state else{
                 return
             }
-            if !(self?.team?.teams.isEmpty ?? false && state){
+            if !(self?.team?.teams?.isEmpty ?? false && state){
                 self?.team = self?.viewModel.teams
                 self?.indicator.stopAnimating()
                 self?.teamsTable.reloadData()
@@ -72,8 +72,8 @@ extension TeamDetailsViewController : UITableViewDelegate, UITableViewDataSource
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if team?.teams[0].teamPlayers?.count != 0 {
-            return team?.teams[0].teamPlayers?.count ?? 0
+        if team?.teams?.count != 0 {
+            return team?.teams?[0].teamPlayers?.count ?? 0
         }
         else{
             return 0
@@ -83,12 +83,12 @@ extension TeamDetailsViewController : UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TeamPlayerCustomCell.teamCellId, for: indexPath) as! TeamPlayerCustomCell
-        cell.playerName.text = team?.teams[0].teamPlayers?[indexPath.row].playerName
-        let url = URL(string: team?.teams[0].teamPlayers?[indexPath.row].playerImage ?? "")
+        cell.playerName.text = team?.teams?[0].teamPlayers?[indexPath.row].playerName
+        let url = URL(string: team?.teams?[0].teamPlayers?[indexPath.row].playerImage ?? "")
         cell.playerImage.kf.setImage(with: url)
         cell.playerImage.clipsToBounds = true
         cell.playerImage.layer.cornerRadius = 27
-        cell.playerPosition.text = team?.teams[0].teamPlayers?[indexPath.row].playerPosition
+        cell.playerPosition.text = team?.teams?[0].teamPlayers?[indexPath.row].playerPosition
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
